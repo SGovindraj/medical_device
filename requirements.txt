@@ -2,8 +2,9 @@ streamlit==1.26.0
 numpy
 pandas
 tensorflow
-python-IO
 pybase64
 matplotlib
 opencv-python
 easyocr
+pybase64
+Python-IO

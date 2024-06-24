@@ -1,7 +1,6 @@
 streamlit==1.26.0
 numpy
 pandas
-opencv-contrib-python
 opencv-python-headless
 tensorflow
 pybase64

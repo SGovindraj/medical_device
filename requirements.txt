@@ -9,3 +9,4 @@ opencv-python
 easyocr
 pybase64
 Python-IO
+opencv-contrib-python-headless

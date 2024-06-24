@@ -1,5 +1,5 @@
 import streamlit as st
-from opencv-python import cv2
+from cv2 import cv2
 import easyocr
 import numpy as np
 import pandas as pd

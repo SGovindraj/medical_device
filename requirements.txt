@@ -1,7 +1,7 @@
 streamlit==1.26.0
 numpy
 pandas
-opencv-python-headless
+opencv-contrib-python
 tensorflow
 pybase64
 matplotlib

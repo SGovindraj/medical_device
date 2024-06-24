@@ -1,4 +1,3 @@
-
 import streamlit as st
 import easyocr
 import cv2
@@ -49,14 +48,8 @@ def classify_device(image_rgb):
 def load_easyocr_reader():
     return easyocr.Reader(['en'])
 
-def preprocess_and_extract(image_path):
+def preprocess_and_extract(image_rgb):
     reader = load_easyocr_reader()
-    image = cv2.imread(image_path)
-    if image is None:
-        st.error(f"Unable to read image from path: {image_path}")
-        return [], None
-
-    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     gray = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2GRAY)
 
     kernel_sharpening = np.array([[-1, -1, -1],
@@ -107,33 +100,46 @@ def main():
         temp_image_path = "temp_image.jpg"
         with open(temp_image_path, "wb") as f:
             f.write(uploaded_file.read())
-        glucose_values, device_type = preprocess_and_extract(temp_image_path)
-       
-        if glucose_values and device_type:
-            st.write("### Detected Values:")
-            for value in glucose_values:
-                st.write(f"Device: {device_type}, Value: {value}")
-                new_row = {'Image': uploaded_file.name, **{device_type: value}}
-                all_device_values = pd.concat([all_device_values, pd.DataFrame([new_row])], ignore_index=True)
 
-            st.write(all_device_values)
-            save_glucose_data()
+        # Read and resize the image to manage memory usage
+        image = cv2.imread(temp_image_path)
+        if image is not None:
+            scale_percent = 30  # Adjust the scaling percentage as needed
+            width = int(image.shape[1] * scale_percent / 100)
+            height = int(image.shape[0] * scale_percent / 100)
+            dim = (width, height)
+            image = cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
+            image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            
+            glucose_values, device_type = preprocess_and_extract(image_rgb)
+           
+            if glucose_values and device_type:
+                st.write("### Detected Values:")
+                for value in glucose_values:
+                    st.write(f"Device: {device_type}, Value: {value}")
+                    new_row = {'Image': uploaded_file.name, **{device_type: value}}
+                    all_device_values = pd.concat([all_device_values, pd.DataFrame([new_row])], ignore_index=True)
+
+                st.write(all_device_values)
+                save_glucose_data()
+            else:
+                st.error("Unable to detect values. Please try again with a clearer image or a different angle.")
+
+            try:
+                os.remove(temp_image_path)
+            except Exception as e:
+                st.warning(f"Failed to delete temporary file {temp_image_path}: {e}")
+            
+            # Force garbage collection
+            gc.collect()
+
+            if st.button("Download All Device Values as CSV"):
+                download_csv()
+
+            if st.button("Clear All Data"):
+                clear_data()
         else:
-            st.error("Unable to detect values. Please try again with a clearer image or a different angle.")
-
-        try:
-            os.remove(temp_image_path)
-        except Exception as e:
-            st.warning(f"Failed to delete temporary file {temp_image_path}: {e}")
-        
-        # Force garbage collection
-        gc.collect()
-
-        if st.button("Download All Device Values as CSV"):
-            download_csv()
-
-        if st.button("Clear All Data"):
-            clear_data()
+            st.error("Failed to read the uploaded image. Please upload a valid image file.")
 
 def save_glucose_data():
     file_path = "all_device_values.csv"

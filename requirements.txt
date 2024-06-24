@@ -2,11 +2,10 @@ streamlit==1.26.0
 numpy
 pandas
 opencv-contrib-python
+opencv-python-headless
 tensorflow
 pybase64
 matplotlib
-opencv-python
 easyocr
 pybase64
 Python-IO
-opencv-contrib-python-headless

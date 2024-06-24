@@ -1,5 +1,4 @@
 import streamlit as st
-from cv2 import cv2
 import easyocr
 import numpy as np
 import pandas as pd

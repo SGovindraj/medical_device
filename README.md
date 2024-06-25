@@ -1,50 +1,7 @@
-# Healthcare Device Data Extractor and Classifier
-
-A Streamlit web application that uses machine learning and OCR (Optical Character Recognition) to classify medical devices and extract relevant data from images of healthcare devices such as glucometers, oximeters, etc.
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
-## Introduction
-
-This project provides a web interface for uploading images of healthcare devices. It uses a pre-trained image classification model to identify the type of device and EasyOCR for text recognition to extract relevant data (like glucose values) from those images.
-
-## Features
-
-- Upload images of healthcare devices
-- Classify the type of medical device
-- Extract and display relevant data from the uploaded images
-- Save the extracted data to a CSV file
-- Download the CSV file
-- Clear the data
-
-## Installation
-
-To run this project locally, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/your-repository.git
-   cd your-repository
-
-
-
-
-
-
-Here's the updated README content to reflect both the device value extraction model and the medical device classification model:
-
 ```markdown
-# Healthcare Device Data Extractor and Classifier
+# Healthcare Device Data Classifier and Extractor.
 
-A Streamlit web application that uses machine learning and OCR (Optical Character Recognition) to classify medical devices and extract relevant data from images of healthcare devices such as glucometers, oximeters, etc.
+A Streamlit web application that uses machine learning and OCR (Optical Character Recognition) to classify medical devices and extract relevant data from images of healthcare devices such as glucometers, oximeters, etc. It perfectly works at glucometer and oximeter devices.
 
 ## Table of Contents
 
@@ -75,8 +32,8 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repository.git
-   cd your-repository
+   git clone https://github.com/SGovindraj/medical_device.git
+   cd medical_device
    ```
 
 2. Create a virtual environment and activate it:
@@ -105,21 +62,43 @@ Then, open your web browser and go to `http://localhost:8501`.
 
 Contributions are welcome! Please follow these steps to contribute:
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Create a new Pull Request.
+1. **Fork the Repository**: Click the "Fork" button at the top right corner of the repository page to create your own copy of the repository.
+
+2. **Clone Your Fork**: Clone your forked repository to your local machine using:
+   ```bash
+   git clone https://github.com/your-username/medical_device.git
+   cd medical_device
+   ```
+
+3. **Create a New Branch**: Create a new branch for your feature or bug fix:
+   ```bash
+   git checkout -b feature-branch-name
+   ```
+
+4. **Make Your Changes**: Make the necessary changes to the code.
+
+5. **Commit Your Changes**: Commit your changes with a clear and descriptive commit message:
+   ```bash
+   git commit -am 'Add detailed description of your changes'
+   ```
+
+6. **Push to Your Branch**: Push your changes to your forked repository:
+   ```bash
+   git push origin feature-branch-name
+   ```
+
+7. **Create a Pull Request**: Go to the original repository on GitHub and create a pull request from your fork. Provide a clear description of your changes and any additional information that might help the reviewers.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
-Your Name - [your-email@example.com](mailto:your-email@example.com) - [Your LinkedIn](https://linkedin.com/in/your-profile)
+SGovindraj - [sgovindraj0606@gmail.com](mailto:sgovindraj0606@gmail.com)
 
-Project Link: [https://github.com/your-username/your-repository](https://github.com/your-username/your-repository)
+Project Link: [https://github.com/SGovindraj/medical_device](https://github.com/SGovindraj/medical_device)
 ```
+##Note: To Get a better result, use a clear HD images for ectraction...
 
-This content includes details about both the device value extraction model and the medical device classification model. Make sure to replace placeholders with your actual information and ensure the `requirements.txt` file includes all necessary dependencies for your project. Save this content in a file named `README.md` in your repository.
+Make sure to replace `sgovindraj@example.com` with your actual email address if you want to include it. Save this content in a file named `README.md` in your repository. Additionally, ensure that you have a `LICENSE` file in your repository containing the text of the Apache License 2.0.

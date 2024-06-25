@@ -1,21 +1,10 @@
-```markdown
-# Healthcare Device Data Classifier and Extractor.
+## Healthcare Device Data Classifier and Extractor.
 
-A Streamlit web application that uses machine learning and OCR (Optical Character Recognition) to classify medical devices and extract relevant data from images of healthcare devices such as glucometers, oximeters, etc. It perfectly works at glucometer and oximeter devices.
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+This is a medical device classification and extractiion model, in this it would run a Streamlit web application that uses machine learning and OCR (Optical Character Recognition) to classify medical devices and extract relevant data from images of healthcare devices such as glucometers, oximeters, etc. It perfectly works at glucometer and oximeter devices...
 
 ## Introduction
 
-This project provides a web interface for uploading images of healthcare devices. It uses a pre-trained image classification model to identify the type of device and EasyOCR for text recognition to extract relevant data (like glucose values) from those images.
+This project is a combination of Classification and OCR Extraction model. I have used a pre-trained image classification model Inception V3 and fine tune it according to my data to identify the type of device and I have used EasyOCR for text recognition to extract relevant data (like glucose values) from those images.
 
 ## Features
 
@@ -25,11 +14,10 @@ This project provides a web interface for uploading images of healthcare devices
 - Save the extracted data to a CSV file
 - Download the CSV file
 - Clear the data
-
+  
 ## Installation
 
 To run this project locally, follow these steps:
-
 1. Clone the repository:
    ```bash
    git clone https://github.com/SGovindraj/medical_device.git
@@ -39,7 +27,7 @@ To run this project locally, follow these steps:
 2. Create a virtual environment and activate it:
    ```bash
    python -m venv env
-   source env/bin/activate  # On Windows, use `env\Scripts\activate`
+   source env\Scripts\activate
    ```
 
 3. Install the required dependencies:
@@ -98,7 +86,5 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 SGovindraj - [sgovindraj0606@gmail.com](mailto:sgovindraj0606@gmail.com)
 
 Project Link: [https://github.com/SGovindraj/medical_device](https://github.com/SGovindraj/medical_device)
-```
-##Note: To Get a better result, use a clear HD images for ectraction...
 
-Make sure to replace `sgovindraj@example.com` with your actual email address if you want to include it. Save this content in a file named `README.md` in your repository. Additionally, ensure that you have a `LICENSE` file in your repository containing the text of the Apache License 2.0.
+## Note: To Get a better result, use a clear HD images for extraction...
